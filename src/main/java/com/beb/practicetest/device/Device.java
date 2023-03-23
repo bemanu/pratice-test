@@ -1,4 +1,4 @@
-package com.beb.praticetest.device;
+package com.beb.practicetest.device;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -59,7 +59,7 @@ public class Device {
         return recordType;
     }
 
-    public void setRecordType(@NonNull String recordType) {
+    public void setRecordType(@NonNull final String recordType) {
         this.recordType = recordType;
     }
 
@@ -67,7 +67,7 @@ public class Device {
         return eventDateTime;
     }
 
-    public void setEventDateTime(LocalDateTime eventDateTime) {
+    public void setEventDateTime(final LocalDateTime eventDateTime) {
         this.eventDateTime = eventDateTime;
     }
 
@@ -75,7 +75,7 @@ public class Device {
         return fieldA;
     }
 
-    public void setFieldA(int fieldA) {
+    public void setFieldA(final int fieldA) {
         this.fieldA = fieldA;
     }
 
@@ -83,7 +83,7 @@ public class Device {
         return fieldB;
     }
 
-    public void setFieldB(String fieldB) {
+    public void setFieldB(final String fieldB) {
         this.fieldB = fieldB;
     }
 
@@ -91,16 +91,16 @@ public class Device {
         return fieldC;
     }
 
-    public void setFieldC(double fieldC) {
+    public void setFieldC(final double fieldC) {
         this.fieldC = fieldC;
     }
 
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(final Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Device device = (Device) o;
+        final Device device = (Device) o;
         return fieldA == device.fieldA && Double.compare(device.fieldC, fieldC) == 0 && Objects.equals(deviceId, device.deviceId) && recordType.equals(device.recordType) && Objects.equals(eventDateTime, device.eventDateTime) && Objects.equals(fieldB, device.fieldB);
     }
 

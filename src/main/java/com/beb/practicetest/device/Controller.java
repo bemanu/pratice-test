@@ -1,4 +1,4 @@
-package com.beb.praticetest.device;
+package com.beb.practicetest.device;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,19 +15,19 @@ public class Controller {
     private DeviceApplicationService deviceService;
 
     @PostMapping("api/v1/device")
-    public ResponseEntity<Device> getDeviceId(@Validated @RequestBody Device request) {
+    public ResponseEntity<Device> getDeviceId(@Validated @RequestBody final Device request) {
         return ResponseEntity.ok().body(this.deviceService.createDevice(request));
     }
 
     @GetMapping("/api/v1/{id}/echo")
     @ResponseBody
-    public ResponseEntity<List<Device>> getDeviceId(@PathVariable long id) {
+    public ResponseEntity<List<Device>> getDeviceId(@PathVariable final long id) {
         System.out.println("id:"+ id);
         try {
-            List<Device> device=  deviceService.getAllDevices();
+            final List<Device> device=  deviceService.getAllDevices();
             return ResponseEntity.ok().body(device);
         }
-        catch (Exception e){
+        catch (final Exception e){
             return ResponseEntity.notFound().build();
         }
 
@@ -35,8 +35,8 @@ public class Controller {
 
     @GetMapping("api/v1/{id}/device")
     @ResponseBody
-    public ResponseEntity<String> getDevice(@PathVariable UUID id) {
-        Device returnedDevice = deviceService.getDeviceById(id);
+    public ResponseEntity<String> getDevice(@PathVariable final UUID id) {
+        final Device returnedDevice = deviceService.getDeviceById(id);
         return ResponseEntity.ok().body(returnedDevice.getDeviceId().toString());
     }
 

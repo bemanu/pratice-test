@@ -1,4 +1,4 @@
-package com.beb.praticetest.device;
+package com.beb.practicetest.device;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

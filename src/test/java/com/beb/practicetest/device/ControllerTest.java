@@ -1,4 +1,4 @@
-package com.beb.praticetest.device;
+package com.beb.practicetest.device;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.json.JsonMapper;
@@ -64,23 +64,23 @@ class ControllerTest {
     @Test
     public void whenGetDevice_thenReturnStatusOKAndDevice() throws Exception {
 
-        JsonMapper jsonMapper = new JsonMapper();
+        final JsonMapper jsonMapper = new JsonMapper();
         jsonMapper.registerModule(new JavaTimeModule());
 
 
         device =  new Device("xxx",68,"xxx",123.45);
-       MvcResult response = mvc.perform(post("/api/v1/device")
+       final MvcResult response = mvc.perform(post("/api/v1/device")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(device)))
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
                .andReturn();
 
-        String jsonString = response.getResponse().getContentAsString();
-        Device createdDevice = new ObjectMapper().readValue(jsonString, Device.class);
-        UUID deviceId = createdDevice.getDeviceId();
+        final String jsonString = response.getResponse().getContentAsString();
+        final Device createdDevice = new ObjectMapper().readValue(jsonString, Device.class);
+        final UUID deviceId = createdDevice.getDeviceId();
 
-        MvcResult getResponse =  mvc.perform(get("/api/v1/"+deviceId+"/device")
+        final MvcResult getResponse =  mvc.perform(get("/api/v1/"+deviceId+"/device")
                         . contentType(MediaType.APPLICATION_JSON).contentType(String.valueOf(String.class)))
                 .andExpect(status().isOk()).andReturn();
 

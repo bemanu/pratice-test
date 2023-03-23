@@ -1,4 +1,4 @@
-package com.beb.praticetest.device;
+package com.beb.practicetest.device;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -15,7 +15,7 @@ class DeviceTest {
 
     @Test
     void constructorTest(){
-        Device device = new Device("yyy",56,"tttt",56.8);
+        final Device device = new Device("yyy",56,"tttt",56.8);
 
         assertNotNull(device);
         assertEquals(device.getFieldA(),56);
@@ -28,10 +28,10 @@ class DeviceTest {
 
     @Test
     void testToString(){
-        Device device = new Device("yyy",68,"xxx",123.45);
+        final Device device = new Device("yyy",68,"xxx",123.45);
         device.setEventDateTime(LocalDateTime.of(2014,05,12,05,9,48));
 
-        String expected = "Device{deviceId=null, recordType='yyy', eventDateTime=2014-05-12T05:09:48, fieldA=68, fieldB='xxx', fieldC=123.45}";
+        final String expected = "Device{deviceId=null, recordType='yyy', eventDateTime=2014-05-12T05:09:48, fieldA=68, fieldB='xxx', fieldC=123.45}";
         assertEquals(expected,device.toString());
     }
 

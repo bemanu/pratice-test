@@ -1,4 +1,4 @@
-package com.beb.praticetest.device;
+package com.beb.practicetest.device;
 
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreRemove;
@@ -8,5 +8,5 @@ public class AuditListener {
     @PrePersist
     @PreUpdate
     @PreRemove
-    private void beforeAnyOperation(Object object) {  }
+    private void beforeAnyOperation(final Object object) {  }
 }

@@ -1,4 +1,4 @@
-package com.beb.praticetest.device;
+package com.beb.practicetest.device;
 
 import org.springframework.web.bind.annotation.ResponseStatus;
 
@@ -6,11 +6,11 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 public class ResourceNotFoundException extends  RuntimeException{
     private static final long serialVersionUID = 1L;
 
-    public  ResourceNotFoundException(String message) {
+    public  ResourceNotFoundException(final String message) {
         super(message);
     }
 
-    public ResourceNotFoundException(String message, Throwable throwable) {
+    public ResourceNotFoundException(final String message, final Throwable throwable) {
         super(message,throwable);
     }
 
